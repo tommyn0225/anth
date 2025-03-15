@@ -1,19 +1,12 @@
-# smithery.yaml
+# Smithery.ai configuration
 startCommand:
   type: stdio
-  configSchema:
-    type: object
-    properties:
-      # You can add configuration options here if needed.
-      # For now, leave it empty.
+  configSchema: {}
   commandFunction: |-
-    (config) => {
-      return {
-        command: "npm",
-        args: ["start"],
-        env: {
-          // EXA_API_KEY will be provided via environment variable or secret management.
-          EXA_API_KEY: process.env.EXA_API_KEY || ""
-        }
-      };
-    }
+    (config) => ({
+      "command": "node",
+      "args": ["index.js"],
+      "env": {
+        "EXA_API_KEY": process.env.EXA_API_KEY || ""
+      }
+    })
